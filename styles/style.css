@@ -1,9 +1,40 @@
+:root{
+    --bg-color-light: #4b0081;
+    --bg-color-dark: #0009;
+    --fields-color-light: #bd1a14e7;
+    --fields-color-dark:#333;
+    --fields-border-light:#eee;
+    --fields-border-dark:#f8b809;
+    --fields-input-light:blueviolet;
+    --fields-input-dark:#0004;
+    /* --shadow-light: 0px 0px 4px 1px var(--fields-border-dark); */
+
+
+}
+
+.dark-theme{
+--fields-color: var(--bg-color-dark);
+--bg-color: var(--bg-color-dark);
+--fields-border: var(--fields-border-dark);
+--fields-input:var(--fields-input-dark);
+}
+
+.light-theme{
+--fields-color: var(--bg-color-light);
+--bg-color: var(--bg-color-light);
+--fields-border: var(--fields-border-light);
+--fields-input:var(--fields-input-light);
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
     border-radius: 10px;
+    color: var(--fields-border);
+    text-shadow: 0  0 4px var(--fields-border);
+   
 }
 
 body {
@@ -13,12 +44,29 @@ body {
     margin: 1rem;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 100px 150px 1fr 1fr;
-
+    background-color: var(--bg-color);    
     grid-template-areas:
         "w w w w"
         "h r x x"
         "h r t e"
-        "h r t e"
+        "h r t e";
+        button:hover{
+            cursor: pointer;
+           transform: scale(0.98);
+           filter: brightness(140%);
+           transition: .3s ease-in-out;
+        }
+        input,textarea,label{
+            border: none;
+            margin-bottom: 1rem;
+            padding: 5px 10px;
+            font-size: 1.2em;
+            text-transform: capitalize;
+            line-height: 1.5;
+        }
+      
+     
+
 
 }
 
@@ -28,13 +76,37 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    background: var(--fields-color);
+    border: 2px solid var(--fields-border);
+    box-shadow: var(--shadow-ligth);
 }
 
+.header h2{
+    font-size: 3em;
+}
+.header button{
+    background: var(--shadow-ligth);
+    border: none;
+    text-transform: capitalize;
+    background: var(--fields-color);
+    padding: 10px;
+    
+}
+
+.btns-theme{
+    background: var(--fields-input);
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
 .historico {
     grid-area: h;
     background-color: red;
     outline-offset: -20px;
     padding: 10px;
+    background: var(--fields-color);
+    border: 2px solid var(--fields-border);
+    box-shadow: var(--shadow-ligth);
 
 }
 
@@ -57,6 +129,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: var(--fields-color);
+    border: 2px solid var(--fields-border);
+    box-shadow: var(--shadow-ligth);
 
 }
 
@@ -73,6 +148,8 @@ body {
     width: 100%;
     height: 40px;
     outline: none;
+    background: var(--fields-input);
+   
 }
 
 .registro-items textarea {
@@ -80,6 +157,7 @@ body {
     aspect-ratio: 1;
     outline: none;
     resize: none;
+    background: var(--fields-input);
 }
 
 .btns-registro {
@@ -93,6 +171,7 @@ body {
 
 .btns-registro button {
     width: 100%;
+    background: var(--fields-input);
 
 }
 
@@ -103,6 +182,9 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    background: var(--fields-color);
+    border: 2px solid var(--fields-border);
+    box-shadow: var(--shadow-ligth);
 }
 
 .horario #dateShow {
@@ -110,6 +192,11 @@ body {
     top: 0;
     left: 0;
     margin: 10px;
+    font-size: 1.5em;
+}
+
+.horario #horas{
+    font-size: 3em;
 }
 
 .evento {
@@ -118,6 +205,9 @@ body {
     padding: 20px;
     overflow: auto;
     position: relative;
+    background: var(--fields-color);
+    border: 2px solid var(--fields-border);
+    box-shadow: var(--shadow-ligth);
 
 }
 
@@ -128,13 +218,14 @@ body {
 #btn-evento {
     position: absolute;
     top: 50%;
-    left: 50%;    
-    transform: translateX(-50%);   
+    left: 50%;
+    transform: translateX(-50%);
     width: 100px;
     aspect-ratio: 1;
     border-radius: 100%;
     font-size: 3em;
     cursor: pointer;
+    background: var(--fields-input);
 }
 
 
@@ -144,20 +235,71 @@ body {
     padding: 20px;
     overflow: auto;
     position: relative;
+    background: var(--fields-color);
+    border: 2px solid var(--fields-border);
+    box-shadow: var(--shadow-ligth);
 }
 
-#btn-tarefa{
-     position: absolute;
+#btn-tarefa {
+    position: absolute;
     top: 50%;
-    left: 50%;    
-    transform: translateX(-50%);   
+    left: 50%;
+    transform: translateX(-50%);
     width: 100px;
     aspect-ratio: 1;
     border-radius: 100%;
     font-size: 3em;
     cursor: pointer;
+    background: var(--fields-input);
 }
 
 .tarefas h4 {
     text-align: center;
+    
+}
+
+.titulo {
+    display: block;
+    cursor: pointer;
+    background-color: var(--fields-input);
+    padding: 5px 10px;
+    margin-top: 8px;
+    font-size: 1.2em;
+    border-radius: 0;
+    transition: .3s linear;
+    &:hover{
+       filter: brightness(120%);
+
+    }
+   
+}
+
+.data123 {    
+    display: none;
+}
+
+.descrição {
+    display: none;
+}
+
+.trash{
+    display: none;
+}
+
+.backdrop{
+    display: block;
+    background: var(--fields-input);
+    padding: 5px 10px;
+    font-size: 1em;
+    border-radius: 0;
+    width: 100%;
+    
+}
+
+.dataHistorico,.trashHistorico,.tituloHistorico{
+    background:var(--fields-input);
+    width: 100px;
+    padding: 5px 10px;
+    font-size: 1em;
+    margin: 10px 0;
 }

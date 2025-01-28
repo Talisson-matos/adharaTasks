@@ -8,7 +8,27 @@ let tarefaButton = document.getElementById('btn-tarefa');
 let eventoButton = document.getElementById('btn-evento');
 let horas = document.getElementById('horas');
 let dataAtual = document.getElementById('dateShow');
+let claro = document.getElementById('claro');
+let escuro = document.getElementById('escuro');
 dataBuscada = ''
+
+// theme
+
+if( !document.body.classList.contains('dark-theme') && !document.body.classList.add('light-theme')){
+    document.body.classList.add('dark-theme')
+}
+
+escuro.addEventListener('click', () => {
+    document.body.classList.add('dark-theme')
+    document.body.classList.remove('light-theme')
+})
+
+claro.addEventListener('click', () => {
+    document.body.classList.add('light-theme')
+    document.body.classList.remove('dark-theme')
+
+
+})
 
 
 
@@ -22,13 +42,14 @@ setInterval(() => {
     const seconds = new Date().getSeconds();
     const formatSeconds = seconds < 10 ? `0${seconds}` : seconds;
     const minutes = new Date().getMinutes();
+    const formatMinutes = minutes < 10 ? `0${minutes}` : minutes;
     const hours = new Date().getHours();
     const date = new Date().getDate();
     const month = new Date().getMonth();
     const nameMonth = nameMonths[month];
     const year = new Date().getFullYear();
     dataBuscada = `${date} de ${nameMonth} de ${year}`
-    const horario = `${hours} : ${minutes} :  ${formatSeconds}`
+    const horario = `${hours} : ${formatMinutes} :  ${formatSeconds}`
     dataAtual.innerHTML = dataBuscada;
     horas.innerHTML = horario;
 
@@ -53,7 +74,8 @@ function addTasks() {
     const date = dateValue.value;
     const description = descriptionValue.value;
     if (input.trim() == '' || date == '' || description.trim() == '') {
-        alert('preencha os campos')
+        alert('preencha os campos');
+        inputTitle.focus()
 
     } else {
         tarefaButton.style.display = 'none';
@@ -64,6 +86,9 @@ function addTasks() {
         let titulo = document.createElement('li');
         let data123 = document.createElement('li');
         let descrição = document.createElement('li');
+        titulo.classList = 'titulo'
+        data123.classList = 'data123'
+        descrição.classList = 'descrição'
         titulo.innerHTML = input
         data123.innerHTML = date
         descrição.innerHTML = description;
@@ -77,9 +102,15 @@ function addTasks() {
             ev.preventDefault();
             itemList.remove();
 
-           
-           
+
+
         });
+
+        titulo.addEventListener('click', () => {
+            data123.classList.add('backdrop')
+            descrição.classList.add('backdrop')
+            trash.classList.add('backdrop')
+        })
 
 
 
@@ -110,8 +141,8 @@ function addTasks() {
             tituloHistorico.remove();
             trashHistorico.remove();
         })
- 
-          
+
+
     }
 
 }
@@ -124,7 +155,8 @@ function addEvents() {
     const date = dateValue.value;
     const description = descriptionValue.value;
     if (input.trim() == '' || date == '' || description.trim() == '') {
-        alert('preencha os campos')
+        alert('preencha os campos');
+        inputTitle.focus()
 
     } else {
         eventoButton.style.display = 'none';
@@ -135,6 +167,9 @@ function addEvents() {
         let titulo = document.createElement('li');
         let data123 = document.createElement('li');
         let descrição = document.createElement('li');
+        titulo.classList = 'titulo'
+        data123.classList = 'data123'
+        descrição.classList = 'descrição'
         titulo.innerHTML = input
         data123.innerHTML = date
         descrição.innerHTML = description;
@@ -152,6 +187,12 @@ function addEvents() {
 
         })
 
+        titulo.addEventListener('click', () => {
+            data123.classList.add('backdrop')
+            descrição.classList.add('backdrop')
+            trash.classList.add('backdrop')
+        })
+
 
 
         //    Histórico 
@@ -159,10 +200,13 @@ function addEvents() {
         let tituloHistorico = document.createElement('p');
         let trashHistorico = document.createElement('button')
 
+        dataHistorico.className = 'dataHistorico';
+        tituloHistorico.className = 'tituloHistorico';
+        trashHistorico.className = 'trashHistorico';
+
         dataHistorico.innerHTML = dataBuscada;
         tituloHistorico.innerHTML = input;
         trashHistorico.innerHTML = 'apagar';
-        trashHistorico.classList = 'trashHistorico';
 
         historico.appendChild(dataHistorico);
         historico.appendChild(tituloHistorico);
