@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- Header -->
+
+    <div class="header">AdharaTasks <div class="btns-theme"><button>luz</button><button>escuro</button></div>
+    </div>
+
+    <!-- Historico -->
+    <div class="historico">
+        <h3 class="title-historico">historico</h3>
+        <div class="historico-items">
+          
+        </div>
+
+    </div>
+
+    <!-- Registro -->
+
+
+    <div class="registro">
+ <h3>registro</h3>
+        <div class="registro-items">
+           
+            <label for="title">título</label>
+            <input type="text" name="title" id="title" >
+            <label for="date">date</label>
+            <input type="date" name="" id="date">
+            <label for="description">description</label>
+            <textarea name="" id="description"></textarea>
+
+        </div>
+
+        <div class="btns-registro">
+            <button onclick="addEvents()">eventos</button>
+            <button onclick="addTasks()">tarefas</button>
+        </div>
+
+    </div>
+    <!-- Horario -->
+    <div class="horario">
+        <span id="dateShow"></span>
+        <span id="horas"></span>
+    </div>
+
+
+
+
+
+
+
+    <div class="evento"> <h4>evento</h4>
+        <button id="btn-evento">+</button>
+    </div>
+    <div class="tarefas" > <h4>tarefas</h4>
+        <button id="btn-tarefa">+</button>
+    </div>
+
+    </div>
+
+
+<script src="scripts/scripts.js"></script>
+</body>
+
+</html>

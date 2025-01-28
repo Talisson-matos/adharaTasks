@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    border-radius: 10px;
+}
+
+body {
+    height: calc(100vh - 2rem);
+    display: grid;
+    gap: 1rem;
+    margin: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 150px 1fr 1fr;
+
+    grid-template-areas:
+        "w w w w"
+        "h r x x"
+        "h r t e"
+        "h r t e"
+
+}
+
+.header {
+    background: green;
+    grid-area: w;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.historico {
+    grid-area: h;
+    background-color: red;
+    outline-offset: -20px;
+    padding: 10px;
+
+}
+
+.title-historico {
+    text-align: center;
+}
+
+.historico-items {
+    width: 90%;
+    padding: 10px;
+    margin: auto;
+    text-align: justify;
+    overflow: auto;
+}
+
+.registro {
+    grid-area: r;
+    background: rgb(167, 47, 47);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.registro h3 {
+    text-align: center;
+}
+
+.registro-items {
+    width: 90%;
+    margin: auto;
+}
+
+.registro-items input {
+    width: 100%;
+    height: 40px;
+    outline: none;
+}
+
+.registro-items textarea {
+    width: 100%;
+    aspect-ratio: 1;
+    outline: none;
+    resize: none;
+}
+
+.btns-registro {
+    width: 90%;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    gap: 5px;
+
+}
+
+.btns-registro button {
+    width: 100%;
+
+}
+
+.horario {
+    grid-area: x;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.horario #dateShow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+
+.evento {
+    grid-area: e;
+    background-color: darkkhaki;
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+
+}
+
+.evento h4 {
+    text-align: center;
+}
+
+#btn-evento {
+    position: absolute;
+    top: 50%;
+    left: 50%;    
+    transform: translateX(-50%);   
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    font-size: 3em;
+    cursor: pointer;
+}
+
+
+.tarefas {
+    grid-area: t;
+    background-color: darkorchid;
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+}
+
+#btn-tarefa{
+     position: absolute;
+    top: 50%;
+    left: 50%;    
+    transform: translateX(-50%);   
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    font-size: 3em;
+    cursor: pointer;
+}
+
+.tarefas h4 {
+    text-align: center;
+}
